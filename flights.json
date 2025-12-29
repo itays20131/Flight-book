@@ -1,0 +1,18 @@
+[
+  {
+    "id": "AC101",
+    "from": "Toronto (YYZ)",
+    "to": "Vancouver (YVR)",
+    "date": "2025-01-10",
+    "time": "14:30",
+    "price": "$320"
+  },
+  {
+    "id": "AC202",
+    "from": "Montreal (YUL)",
+    "to": "Calgary (YYC)",
+    "date": "2025-01-12",
+    "time": "09:00",
+    "price": "$280"
+  }
+]
