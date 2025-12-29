@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Flights</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+    .container {
+      max-width: 420px;
+      margin: 60px auto;
+      background: rgba(0,0,0,0.7);
+      padding: 25px;
+      border-radius: 12px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: none;
+    }
+    button {
+      background: #1abc9c;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #16a085;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✈️ Book a Flight</h1>
+
+    <form action="success.html">
+      <label>From</label>
+      <input type="text" required>
+
+      <label>To</label>
+      <input type="text" required>
+
+      <label>Date</label>
+      <input type="date" required>
+
+      <label>Passengers</label>
+      <input type="number" min="1" value="1" required>
+
+      <button type="submit">Search Flights</button>
+    </form>
+  </div>
+</body>
+</html>
