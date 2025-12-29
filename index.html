@@ -1,192 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Air Canada | Book Flights</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #c8102e, #ffffff);
-      min-height: 100vh;
-    }
-
-    header {
-      background: #c8102e;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-
-    main {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    h2 {
-      color: #c8102e;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    button {
-      background: #c8102e;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .admin {
-      display: none;
-      margin-top: 30px;
-    }
-
-    .flight {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .flight-info {
-      font-weight: bold;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      color: #555;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>Book Flights | Air Canada</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <h1>✈️ Air Canada – Book Flights</h1>
-  <p>Roblox PTFS Virtual Airline</p>
-</header>
+  <header>
+    <h1>✈️ Air Canada – Book Flights</h1>
+    <p>Select your flight</p>
+  </header>
 
-<main>
+  <main>
+    <div id="flights"></div>
+  </main>
 
-  <h2>Available Flights</h2>
-  <div id="flights"></div>
-
-  <hr>
-
-  <h2>Admin Login</h2>
-  <input type="password" id="adminPass" placeholder="Admin password">
-  <button onclick="login()">Login</button>
-
-  <div class="admin" id="adminPanel">
-    <h2>➕ Add New Flight</h2>
-    <input id="from" placeholder="From (e.g. CYYZ)">
-    <input id="to" placeholder="To (e.g. KJFK)">
-    <input id="plane" placeholder="Aircraft (e.g. A320)">
-    <input id="time" placeholder="Departure Time">
-    <button onclick="addFlight()">Add Flight</button>
-  </div>
-
-</main>
-
-<footer>
-  © Air Canada PTFS | Fan Made
-</footer>
-
-<script>
-  const ADMIN_PASSWORD = "aircanada123"; // 🔒 שנה סיסמה פה
-
-  let flights = JSON.parse(localStorage.getItem("flights")) || [];
-
-  function saveFlights() {
-    localStorage.setItem("flights", JSON.stringify(flights));
-    renderFlights();
-  }
-
-  function renderFlights() {
-    const container = document.getElementById("flights");
-    container.innerHTML = "";
-
-    if (flights.length === 0) {
-      container.innerHTML = "<p>No flights available.</p>";
-      return;
-    }
-
-    flights.forEach((f, i) => {
-      const div = document.createElement("div");
-      div.className = "card flight";
-      div.innerHTML = `
-        <div class="flight-info">
-          ${f.from} ➝ ${f.to}<br>
-          ${f.plane} | ${f.time}
-        </div>
-        <button onclick="removeFlight(${i})">Delete</button>
-      `;
-      container.appendChild(div);
-    });
-  }
-
-  function addFlight() {
-    const from = document.getElementById("from").value;
-    const to = document.getElementById("to").value;
-    const plane = document.getElementById("plane").value;
-    const time = document.getElementById("time").value;
-
-    if (!from || !to || !plane || !time) {
-      alert("Fill all fields");
-      return;
-    }
-
-    flights.push({ from, to, plane, time });
-    saveFlights();
-
-    document.getElementById("from").value = "";
-    document.getElementById("to").value = "";
-    document.getElementById("plane").value = "";
-    document.getElementById("time").value = "";
-  }
-
-  function removeFlight(index) {
-    flights.splice(index, 1);
-    saveFlights();
-  }
-
-  function login() {
-    const pass = document.getElementById("adminPass").value;
-    if (pass === ADMIN_PASSWORD) {
-      document.getElementById("adminPanel").style.display = "block";
-      alert("Admin access granted");
-    } else {
-      alert("Wrong password");
-    }
-  }
-
-  renderFlights();
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
