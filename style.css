@@ -1,43 +1,49 @@
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #b71c1c, #ffffff);
   margin: 0;
-  padding: 0;
-  text-align: center;
+  background: #f2f5f9;
+  color: #333;
 }
 
 header {
-  background: #b71c1c;
+  background: linear-gradient(135deg, #c8102e, #a5001f);
   color: white;
-  padding: 20px;
+  padding: 30px;
+  text-align: center;
 }
 
-main {
-  padding: 20px;
+#flights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px;
 }
 
 .flight {
   background: white;
-  margin: 10px auto;
-  padding: 15px;
-  width: 90%;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
 }
 
-input {
+.flight h3 {
+  margin-top: 0;
+  color: #c8102e;
+}
+
+.flight button {
+  margin-top: 10px;
   padding: 10px;
-  margin: 5px;
-  width: 80%;
-  max-width: 300px;
-}
-
-button {
-  padding: 10px 20px;
-  background: #b71c1c;
-  color: white;
+  width: 100%;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  background: #c8102e;
+  color: white;
+  font-size: 16px;
   cursor: pointer;
 }
+
+.flight button:hover {
+  background: #a5001f;
+}
+
