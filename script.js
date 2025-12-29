@@ -1,66 +1,21 @@
-const ADMIN_PASSWORD = "aircanada123"; // 🔴 תשנה לסיסמה שלך
+fetch("flights.json")
+  .then(res => res.json())
+  .then(data => {
+    const flightsDiv = document.getElementById("flights");
 
-function getFlights() {
-  return JSON.parse(localStorage.getItem("flights")) || [];
-}
+    data.forEach(flight => {
+      const div = document.createElement("div");
+      div.className = "flight";
 
-function saveFlights(flights) {
-  localStorage.setItem("flights", JSON.stringify(flights));
-}
+      div.innerHTML = `
+        <h3>${flight.from} → ${flight.to}</h3>
+        <p><strong>Flight:</strong> ${flight.id}</p>
+        <p><strong>Date:</strong> ${flight.date}</p>
+        <p><strong>Time:</strong> ${flight.time}</p>
+        <p><strong>Price:</strong> ${flight.price}</p>
+        <button onclick="alert('Booking request sent!')">Book Flight</button>
+      `;
 
-function renderFlights() {
-  const flightsDiv = document.getElementById("flights");
-  if (!flightsDiv) return;
-
-  flightsDiv.innerHTML = "";
-  const flights = getFlights();
-
-  flights.forEach(f => {
-    const div = document.createElement("div");
-    div.className = "flight";
-    div.innerHTML = `
-      <h3>${f.from} ➜ ${f.to}</h3>
-      <p>🕒 ${f.time}</p>
-    `;
-    flightsDiv.appendChild(div);
+      flightsDiv.appendChild(div);
+    });
   });
-}
-
-function login() {
-  const pass = document.getElementById("password").value;
-  if (pass === ADMIN_PASSWORD) {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("admin").style.display = "block";
-    renderAdminFlights();
-  } else {
-    alert("Wrong password");
-  }
-}
-
-function addFlight() {
-  const from = document.getElementById("from").value;
-  const to = document.getElementById("to").value;
-  const time = document.getElementById("time").value;
-
-  if (!from || !to || !time) return;
-
-  const flights = getFlights();
-  flights.push({ from, to, time });
-  saveFlights(flights);
-
-  renderAdminFlights();
-}
-
-function renderAdminFlights() {
-  const ul = document.getElementById("adminFlights");
-  if (!ul) return;
-
-  ul.innerHTML = "";
-  getFlights().forEach(f => {
-    const li = document.createElement("li");
-    li.textContent = `${f.from} ➜ ${f.to} (${f.time})`;
-    ul.appendChild(li);
-  });
-}
-
-renderFlights();
