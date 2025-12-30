@@ -1,29 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Air Canada – Book Flights</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+const webhookURL = "https://discord.com/api/webhooks/1455638491445858538/kb5dtfbEDqkubaB4HV3F3tKXHStjQ_7CBU1SmcQR-8o6ejbn0X2ghxlRRQnu7gIexa8C";
 
-<header>
-  ✈️ Air Canada – Book Flights
-  <small>Select your flight</small>
-</header>
+fetch("flights.json")
+  .then(res => res.json())
+  .then(data => {
+    const select = document.getElementById("flights");
+    data.forEach(f => {
+      const opt = document.createElement("option");
+      opt.value = `${f.id} | ${f.from} → ${f.to} | ${f.time}`;
+      opt.textContent = `${f.id} – ${f.from} → ${f.to}`;
+      select.appendChild(opt);
+    });
+  });
 
-<div class="container">
-  <label>Roblox Username</label>
-  <input id="username" placeholder="Your Roblox username" />
+function bookFlight() {
+  const user = document.getElementById("username").value;
+  const flight = document.getElementById("flights").value;
 
-  <label>Select Flight</label>
-  <select id="flights"></select>
+  if (!user || !flight) {
+    alert("Fill all fields");
+    return;
+  }
 
-  <button onclick="bookFlight()">Book Flight</button>
+  const payload = {
+    embeds: [
+      {
+        title: "✈️ New Flight Booking",
+        color: 15158332,
+        fields: [
+          { name: "Roblox User", value: user, inline: false },
+          { name: "Flight", value: flight, inline: false }
+        ],
+        footer: {
+          text: "Air Canada PTFS – Book Flights"
+        },
+        timestamp: new Date()
+      }
+    ]
+  };
 
-  <p id="status"></p>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
+  fetch(webhookURL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+  .then(() => {
+    document.getElementById("status").textContent =
+      "✅ Booking sent! Trainers will contact you on Discord.";
+  })
+  .catch(() => {
+    alert("Error sending booking");
+  });
+}
