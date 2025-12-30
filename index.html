@@ -9,20 +9,33 @@
 
 <header>
   ✈️ Air Canada – Book Flights
-  <small>Select your flight</small>
+  <p>Select your flight</p>
 </header>
 
-<div class="container">
-  <label>Roblox Username</label>
-  <input id="username" placeholder="Your Roblox username" />
+<div class="card">
+  <form id="bookingForm">
 
-  <label>Select Flight</label>
-  <select id="flights"></select>
+    <label>Roblox Username</label>
+    <input type="text" id="username" required placeholder="Enter your Roblox name">
 
-  <button onclick="bookFlight()">Book Flight</button>
+    <label>Select Flight</label>
+    <select id="flight" required>
+      <option value="">-- Choose a flight --</option>
+      <option>AC101 – Toronto (CYYZ) → Vancouver (CYVR)</option>
+      <option>AC202 – Montreal (CYUL) → New York (KJFK)</option>
+    </select>
+
+    <button type="submit">Book Flight</button>
+
+  </form>
 
   <p id="status"></p>
 </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
 
 <script src="script.js"></script>
 </body>
