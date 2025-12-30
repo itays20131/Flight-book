@@ -1,60 +1,64 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #b30000, #ffcccc);
+  background: linear-gradient(to right, #b11217, #f6c1c1);
 }
 
 header {
-  background: #b30000;
+  background: #b11217;
   color: white;
-  padding: 20px;
-  font-size: 26px;
+  padding: 30px;
   text-align: center;
+  font-size: 26px;
 }
 
-header small {
-  display: block;
-  font-size: 14px;
-  opacity: 0.9;
+header p {
+  font-size: 16px;
+  margin-top: 5px;
 }
 
-.container {
+.card {
   background: white;
+  width: 90%;
   max-width: 400px;
-  margin: 40px auto;
+  margin: 50px auto;
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 label {
-  font-weight: bold;
   display: block;
   margin-top: 15px;
+  font-weight: bold;
 }
 
 input, select {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 button {
-  margin-top: 20px;
   width: 100%;
+  margin-top: 20px;
   padding: 12px;
-  background: #b30000;
+  background: #b11217;
   color: white;
-  border: none;
   font-size: 16px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
 }
 
 button:hover {
-  background: #800000;
+  background: #8f0e13;
 }
 
 #status {
   margin-top: 15px;
+  text-align: center;
   font-weight: bold;
-  color: green;
 }
