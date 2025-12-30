@@ -1,18 +1,16 @@
 [
   {
-    "id": "AC101",
-    "from": "Toronto (YYZ)",
-    "to": "Vancouver (YVR)",
-    "date": "2025-01-10",
-    "time": "14:30",
-    "price": "$320"
+    "flightNumber": "AC101",
+    "from": "Toronto (CYYZ)",
+    "to": "Vancouver (CYVR)",
+    "time": "18:30",
+    "aircraft": "Boeing 737"
   },
   {
-    "id": "AC202",
-    "from": "Montreal (YUL)",
-    "to": "Calgary (YYC)",
-    "date": "2025-01-12",
-    "time": "09:00",
-    "price": "$280"
+    "flightNumber": "AC202",
+    "from": "Montreal (CYUL)",
+    "to": "Calgary (CYYC)",
+    "time": "20:00",
+    "aircraft": "Airbus A320"
   }
 ]
