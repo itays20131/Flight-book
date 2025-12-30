@@ -1,12 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin – Flights</title>
+  <meta charset="UTF-8">
+  <title>Admin – Add Flight</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h2>Admin Panel</h2>
-<p>Edit <b>flights.json</b> manually to add flights.</p>
-<p>This page is private.</p>
+
+<header>
+  🔐 Admin Panel – Add Flight
+</header>
+
+<div class="container">
+  <input id="from" placeholder="From (Airport)">
+  <input id="to" placeholder="To (Airport)">
+  <input id="time" placeholder="Time (HH:MM)">
+  <input id="flight" placeholder="Flight Number">
+
+  <button onclick="addFlight()">Add Flight</button>
+
+  <p style="margin-top:15px;">
+    ⚠️ Copy the output and paste it into <b>flights.json</b>
+  </p>
+
+  <pre id="output"></pre>
+</div>
+
+<script>
+let flights = [];
+
+function addFlight() {
+  const f = {
+    from: from.value,
+    to: to.value,
+    time: time.value,
+    flight: flight.value
+  };
+  flights.push(f);
+  document.getElementById("output").textContent =
+    JSON.stringify(flights, null, 2);
+}
+</script>
+
 </body>
 </html>
-
