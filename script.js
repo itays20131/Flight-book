@@ -1,21 +1,21 @@
 fetch("flights.json")
   .then(res => res.json())
   .then(data => {
-    const flightsDiv = document.getElementById("flights");
+    const container = document.getElementById("flights");
 
     data.forEach(flight => {
       const div = document.createElement("div");
       div.className = "flight";
 
       div.innerHTML = `
-        <h3>${flight.from} → ${flight.to}</h3>
-        <p><strong>Flight:</strong> ${flight.id}</p>
-        <p><strong>Date:</strong> ${flight.date}</p>
+        <h3>${flight.flightNumber}</h3>
+        <p><strong>From:</strong> ${flight.from}</p>
+        <p><strong>To:</strong> ${flight.to}</p>
         <p><strong>Time:</strong> ${flight.time}</p>
-        <p><strong>Price:</strong> ${flight.price}</p>
-        <button onclick="alert('Booking request sent!')">Book Flight</button>
+        <p><strong>Aircraft:</strong> ${flight.aircraft}</p>
+        <button>Book</button>
       `;
 
-      flightsDiv.appendChild(div);
+      container.appendChild(div);
     });
   });
