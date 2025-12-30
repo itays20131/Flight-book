@@ -1,21 +1,29 @@
-fetch("flights.json")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("flights");
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Air Canada – Book Flights</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    data.forEach(flight => {
-      const div = document.createElement("div");
-      div.className = "flight";
+<header>
+  ✈️ Air Canada – Book Flights
+  <small>Select your flight</small>
+</header>
 
-      div.innerHTML = `
-        <h3>${flight.flightNumber}</h3>
-        <p><strong>From:</strong> ${flight.from}</p>
-        <p><strong>To:</strong> ${flight.to}</p>
-        <p><strong>Time:</strong> ${flight.time}</p>
-        <p><strong>Aircraft:</strong> ${flight.aircraft}</p>
-        <button>Book</button>
-      `;
+<div class="container">
+  <label>Roblox Username</label>
+  <input id="username" placeholder="Your Roblox username" />
 
-      container.appendChild(div);
-    });
-  });
+  <label>Select Flight</label>
+  <select id="flights"></select>
+
+  <button onclick="bookFlight()">Book Flight</button>
+
+  <p id="status"></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
