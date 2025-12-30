@@ -1,16 +1,16 @@
 [
   {
-    "flightNumber": "AC101",
+    "id": "AC101",
     "from": "Toronto (CYYZ)",
     "to": "Vancouver (CYVR)",
-    "time": "18:30",
-    "aircraft": "Boeing 737"
+    "time": "18:00 UTC",
+    "aircraft": "A320"
   },
   {
-    "flightNumber": "AC202",
+    "id": "AC202",
     "from": "Montreal (CYUL)",
-    "to": "Calgary (CYYC)",
-    "time": "20:00",
-    "aircraft": "Airbus A320"
+    "to": "New York (KJFK)",
+    "time": "20:30 UTC",
+    "aircraft": "B737"
   }
 ]
