@@ -1,23 +1,38 @@
-const webhookURL = "https://discord.com/api/webhooks/1455638491445858538/kb5dtfbEDqkubaB4HV3F3tKXHStjQ_7CBU1SmcQR-8o6ejbn0X2ghxlRRQnu7gIexa8C";
+const WEBHOOK_URL = "https://discord.com/api/webhooks/1455638491445858538/kb5dtfbEDqkubaB4HV3F3tKXHStjQ_7CBU1SmcQR-8o6ejbn0X2ghxlRRQnu7gIexa8C";
 
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+function sendBooking() {
+  const roblox = document.getElementById("roblox").value;
+  const discord = document.getElementById("discord").value;
+  const destination = document.getElementById("destination").value;
+  const trip = document.getElementById("trip").value;
 
-  const username = document.getElementById("username").value;
-  const flight = document.getElementById("flight").value;
+  if (!roblox || !discord || !destination) {
+    alert("Please fill all fields");
+    return;
+  }
 
-  const data = {
-    content: `✈️ **New Flight Booking**\n👤 Roblox: **${username}**\n🛫 Flight: **${flight}**`
-  };
+  let message = `
+✈️ **New Flight Booking**
 
-  fetch(webhookURL, {
+👤 Roblox: ${roblox}
+💬 Discord: ${discord}
+
+🛫 From: **Perth**
+🛬 To: **${destination}**
+🔁 Trip: **${trip}**
+`;
+
+  if (trip === "Round Trip") {
+    message += `↩️ Return: **${destination} → Perth**`;
+  }
+
+  fetch(WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data)
-  }).then(() => {
-    document.getElementById("status").innerText = "✅ Flight booked successfully!";
-    document.getElementById("bookingForm").reset();
-  }).catch(() => {
-    document.getElementById("status").innerText = "❌ Error sending booking.";
+    body: JSON.stringify({
+      content: message
+    })
   });
-});
+
+  alert("Flight booked successfully!");
+}
