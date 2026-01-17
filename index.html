@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Air Canada – Book Flights</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Book Flights – Perth Hub</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-  ✈️ Air Canada – Book Flights
-  <p>Select your flight</p>
+  ✈️ Perth Flight Hub
+  <span class="sub">Main Hub</span>
 </header>
 
-<div class="card">
-  <form id="bookingForm">
+<main>
+  <div class="card">
+    <h2>Book a Flight</h2>
 
     <label>Roblox Username</label>
-    <input type="text" id="username" required placeholder="Enter your Roblox name">
+    <input id="roblox" placeholder="Enter username">
 
-    <label>Select Flight</label>
-    <select id="flight" required>
-      <option value="">-- Choose a flight --</option>
-      <option>AC101 – Toronto (CYYZ) → Vancouver (CYVR)</option>
-      <option>AC202 – Montreal (CYUL) → New York (KJFK)</option>
+    <label>Discord Username</label>
+    <input id="discord" placeholder="name#0000">
+
+    <label>Destination</label>
+    <select id="destination">
+      <option value="">Select destination</option>
+      <option>Cyprus</option>
+      <option>Greater Rockford</option>
+      <option>Saint Barthélemy</option>
+      <option>Skopelos</option>
+      <option>Izolirani</option>
+      <option>Orengi</option>
+      <option>Grindavik</option>
     </select>
 
-    <button type="submit">Book Flight</button>
+    <label>Trip Type</label>
+    <select id="trip">
+      <option value="One Way">One Way</option>
+      <option value="Round Trip">Round Trip</option>
+    </select>
 
-  </form>
-
-  <p id="status"></p>
-</div>
-
-<script src="script.js"></script>
-</body>
-</html>
-
+    <button onclick="sendBooking()">Book Flight</button>
+  </div>
+</main>
 
 <script src="script.js"></script>
 </body>
