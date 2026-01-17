@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Book Flights – Perth Hub</title>
+  <title>Perth Flight Hub – PTFS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
   ✈️ Perth Flight Hub
-  <span class="sub">Main Hub</span>
+  <div class="sub">Main Hub – PTFS Booking System</div>
 </header>
 
 <main>
@@ -17,22 +17,28 @@
     <h2>Book a Flight</h2>
 
     <label>Roblox Username</label>
-    <input id="roblox" placeholder="Enter username">
+    <input id="roblox" placeholder="Your Roblox username">
 
     <label>Discord Username</label>
-    <input id="discord" placeholder="name#0000">
+    <input id="discord" placeholder="username#0000">
 
-    <label>Destination</label>
-    <select id="destination">
-      <option value="">Select destination</option>
-      <option>Cyprus</option>
-      <option>Greater Rockford</option>
-      <option>Saint Barthélemy</option>
-      <option>Skopelos</option>
-      <option>Izolirani</option>
-      <option>Orengi</option>
-      <option>Grindavik</option>
-    </select>
+    <label>Choose Destination</label>
+
+    <div class="map">
+      <!-- ✏️ כאן אתה מוסיף / מוחק טיסות -->
+      <button onclick="setDestination('Cyprus')">Cyprus</button>
+      <button onclick="setDestination('Greater Rockford')">Greater Rockford</button>
+      <button onclick="setDestination('Saint Barthélemy')">Saint Barthélemy</button>
+      <button onclick="setDestination('Skopelos')">Skopelos</button>
+      <button onclick="setDestination('Izolirani')">Izolirani</button>
+      <button onclick="setDestination('Orengi')">Orengi</button>
+      <button onclick="setDestination('Grindavik')">Grindavik</button>
+    </div>
+
+    <p class="selected">
+      Selected destination:
+      <span id="dest">None</span>
+    </p>
 
     <label>Trip Type</label>
     <select id="trip">
