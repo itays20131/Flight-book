@@ -1,9 +1,16 @@
-const WEBHOOK_URL = "https://discord.com/api/webhooks/1455638491445858538/kb5dtfbEDqkubaB4HV3F3tKXHStjQ_7CBU1SmcQR-8o6ejbn0X2ghxlRRQnu7gIexa8C";
+const WEBHOOK_URL =
+  "https://discord.com/api/webhooks/1455638491445858538/kb5dtfbEDqkubaB4HV3F3tKXHStjQ_7CBU1SmcQR-8o6ejbn0X2ghxlRRQnu7gIexa8C";
+
+let destination = "";
+
+function setDestination(dest) {
+  destination = dest;
+  document.getElementById("dest").innerText = dest;
+}
 
 function sendBooking() {
   const roblox = document.getElementById("roblox").value;
   const discord = document.getElementById("discord").value;
-  const destination = document.getElementById("destination").value;
   const trip = document.getElementById("trip").value;
 
   if (!roblox || !discord || !destination) {
@@ -29,10 +36,8 @@ function sendBooking() {
   fetch(WEBHOOK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      content: message
-    })
+    body: JSON.stringify({ content: message })
   });
 
-  alert("Flight booked successfully!");
+  alert("✅ Booking sent to dispatch!");
 }
