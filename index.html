@@ -1,53 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Perth Flight Hub – PTFS</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Perth Flight Hub</title>
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-  ✈️ Perth Flight Hub
-  <div class="sub">Main Hub – PTFS Booking System</div>
+  ✈ Perth Flight Hub
+  <div class="sub">PTFS Booking System</div>
+
+  <select id="langSelect" onchange="setLang(this.value)">
+    <option value="en">English</option>
+    <option value="he">עברית</option>
+    <option value="ru">Русский</option>
+  </select>
 </header>
 
 <main>
-  <div class="card">
-    <h2>Book a Flight</h2>
+<div class="card">
 
-    <label>Roblox Username</label>
-    <input id="roblox" placeholder="Your Roblox username">
+<h2 id="title">Book Flight</h2>
 
-    <label>Discord Username</label>
-    <input id="discord" placeholder="username#0000">
+<label id="l1">Roblox Username</label>
+<input id="roblox">
 
-    <label>Choose Destination</label>
+<label id="l2">Discord Username</label>
+<input id="discord">
 
-    <div class="map">
-      <!-- ✏️ כאן אתה מוסיף / מוחק טיסות -->
-      <button onclick="setDestination('Cyprus')">Cyprus</button>
-      <button onclick="setDestination('Greater Rockford')">Greater Rockford</button>
-      <button onclick="setDestination('Saint Barthélemy')">Saint Barthélemy</button>
-      <button onclick="setDestination('Skopelos')">Skopelos</button>
-      <button onclick="setDestination('Izolirani')">Izolirani</button>
-      <button onclick="setDestination('Orengi')">Orengi</button>
-      <button onclick="setDestination('Grindavik')">Grindavik</button>
-    </div>
+<label id="l3">Select Destination</label>
 
-    <p class="selected">
-      Selected destination:
-      <span id="dest">None</span>
-    </p>
+<div class="map-container">
+  <img src="map.png" class="map-img">
 
-    <label>Trip Type</label>
-    <select id="trip">
-      <option value="One Way">One Way</option>
-      <option value="Round Trip">Round Trip</option>
-    </select>
+  <div class="dot cyprus" onclick="setDestination('Cyprus')"></div>
+  <div class="dot rockford" onclick="setDestination('Rockford')"></div>
+  <div class="dot barth" onclick="setDestination('Saint Barthélemy')"></div>
+</div>
 
-    <button onclick="sendBooking()">Book Flight</button>
-  </div>
+<p class="selected">
+<span id="selectedText">Selected:</span>
+<span id="dest">None</span>
+</p>
+
+<label id="l4">Aircraft</label>
+<select id="aircraft">
+  <option>A320</option>
+  <option>B737</option>
+  <option>B787</option>
+</select>
+
+<label id="l5">Flight Time</label>
+<input type="time" id="time">
+
+<label id="l6">Trip Type</label>
+<select id="trip">
+  <option>One Way</option>
+  <option>Round Trip</option>
+</select>
+
+<button onclick="sendBooking()" id="bookBtn">Book Flight</button>
+
+</div>
 </main>
 
 <script src="script.js"></script>
